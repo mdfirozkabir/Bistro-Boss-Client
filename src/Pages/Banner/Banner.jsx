@@ -10,28 +10,26 @@ import img6 from '../../assets/home/06.jpg'
 
 const Banner = () => {
     return (
-        <div>
-            <Carousel autoPlay={true}>
-                <div>
-                    <img src={img1} />
-                </div>
-                <div>
-                    <img src={img2} />
-                </div>
-                <div>
-                    <img src={img3} />
-                </div>
-                <div>
-                    <img src={img4} />
-                </div>
-                <div>
-                    <img src={img5} />
-                </div>
-                <div>
-                    <img src={img6} />
-                </div>
-            </Carousel>
-        </div>
+        <Carousel autoPlay infiniteLoop>
+            <div>
+                <img src={img1} />
+            </div>
+            <div>
+                <img src={img2} />
+            </div>
+            <div>
+                <img src={img3} />
+            </div>
+            <div>
+                <img src={img4} />
+            </div>
+            <div>
+                <img src={img5} />
+            </div>
+            <div>
+                <img src={img6} />
+            </div>
+        </Carousel>
     );
 };
 
