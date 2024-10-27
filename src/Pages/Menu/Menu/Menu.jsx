@@ -28,18 +28,14 @@ const Menu = () => {
             <SectionTitle subHeading="Don't miss" heading="Today's Offer"></SectionTitle>
             {/* offered menu items */}
             <MenuCategory items={offered}></MenuCategory>
-            <button className="btn grid mt-2 btn-outline mx-auto border-0 border-b-4">Order Your Favorite Food</button>
             {/* desserts menu items */}
-            <MenuCategory items={dessert} title="Desserts" img={dessertImg}></MenuCategory>
-            <button className="btn grid mt-2 btn-outline mx-auto border-0 border-b-4">Order Your Favorite Food</button>
-            <MenuCategory items={pizza} title="Pizza" img={pizzaImg}></MenuCategory>
-            <button className="btn grid mt-2 btn-outline mx-auto border-0 border-b-4">Order Your Favorite Food</button>
-            <MenuCategory items={salad} title="Salad" img={saladImg}></MenuCategory>
-            <button className="btn grid mt-2 btn-outline mx-auto border-0 border-b-4">Order Your Favorite Food</button>
-            <MenuCategory items={soup} title="Soup" img={soupImg}></MenuCategory>
-            <div className="mb-8">
-                <button className="btn grid mt-2 btn-outline mx-auto border-0 border-b-4">Order Your Favorite Food</button>
-            </div>
+            <MenuCategory items={dessert} title="desserts" img={dessertImg}></MenuCategory>
+            
+            <MenuCategory items={pizza} title="pizza" img={pizzaImg}></MenuCategory>
+            
+            <MenuCategory items={salad} title="salad" img={saladImg}></MenuCategory>
+            
+            <MenuCategory items={soup} title="soup" img={soupImg}></MenuCategory>
         </>
     );
 };

@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import Cover from "../../../Shared/Cover/Cover";
 import MenuItem from "../../../Shared/MenuItem/MenuItem";
 
 
+// eslint-disable-next-line react/prop-types
 const MenuCategory = ({ items, title, img }) => {
     return (
         <div className="pt-8">
@@ -15,6 +17,9 @@ const MenuCategory = ({ items, title, img }) => {
                     ></MenuItem>)
                 }
             </div>
+            <Link to={`/order/${title}`}>
+                <button className="btn grid mt-2 btn-outline mx-auto border-0 border-b-4">Order Your Favorite Food</button>
+            </Link>
         </div>
     );
 };

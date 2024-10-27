@@ -1,14 +1,19 @@
+import { Helmet } from 'react-helmet-async';
 import { useState } from "react";
 import orderCoverImg from "../../../assets/shop/order.jpg"
 import Cover from "../../../Shared/Cover/Cover";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import useMenu from '../../../Hooks/useMenu';
-import FoodCard from "../../../Shared/FoodCard/FoodCard";
+import OrderTab from "../OrderTab/OrderTab";
+import { useParams } from "react-router-dom";
 
 const Order = () => {
-
-    const [tabIndex, setTabIndex] = useState(0);
+    const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks'];
+    const { category } = useParams();
+    const initialIndex = categories.indexOf(category);
+    console.log(category, initialIndex);
+    const [tabIndex, setTabIndex] = useState(initialIndex);
     const [menu] = useMenu();
 
     const salad = menu.filter(item => item.category === "salad");
@@ -19,6 +24,9 @@ const Order = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Bisto Boss | Order {category}</title>
+            </Helmet>
             <Cover img={orderCoverImg} title="Order Food"></Cover>
             <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                 <TabList>
@@ -29,39 +37,19 @@ const Order = () => {
                     <Tab>Drinks</Tab>
                 </TabList>
                 <TabPanel>
-                    <div className="grid md:grid-cols-3 mx-auto ga10">
-                        {
-                            salad.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
-                        }
-                    </div>
+                    <OrderTab items={salad}></OrderTab>
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid md:grid-cols-3 mx-auto ga10">
-                        {
-                            pizza.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
-                        }
-                    </div>
+                    <OrderTab items={pizza}></OrderTab>
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid md:grid-cols-3 mx-auto ga10">
-                        {
-                            soup.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
-                        }
-                    </div>
+                    <OrderTab items={soup}></OrderTab>
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid md:grid-cols-3 mx-auto ga10">
-                        {
-                            dessert.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
-                        }
-                    </div>
+                    <OrderTab items={dessert}></OrderTab>
                 </TabPanel>
                 <TabPanel>
-                    <div className="grid md:grid-cols-3 mx-auto ga10">
-                        {
-                            drinks.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
-                        }
-                    </div>
+                    <OrderTab items={drinks}></OrderTab>
                 </TabPanel>
             </Tabs>
         </div>
